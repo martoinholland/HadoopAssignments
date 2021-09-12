@@ -12,7 +12,7 @@ class RatingsBreakdownPerMovie (MRJob):
         ]
     
     #define a mapper which will map the movie id's to their ratings. 
-    #We are returning the movie ID and 1, since we are interested in counting the number of ratings and not the rating's values themselves.
+    #We are returning the movie ID and 1, as the keys and values, since we are interested in counting the number of ratings for movies and not the rating's values themselves.
     def mapper_get_movies(self, _, line):
         (userID, movieID, rating, timestamp) = line.split('\t')
         yield movieID, 1
